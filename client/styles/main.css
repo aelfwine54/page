@@ -1,4 +1,85 @@
-footer{
+html, body, p, div, h1, h2, h3, h4, h5, h6, img, pre, form, fieldset {
+    margin: 0;
+    padding: 0
+}
+
+ul, ol, dl {
+    margin: 0
+}
+
+img, fieldset {
+    border: 0
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+footer {
     text-align: center;
     color: #111111
 }
+
+#side_header {
+    position: absolute;
+    width: 150px;
+    top:0px;
+    bottom: 0px;
+    background-color: #339966;
+    border-right: 1px solid black;
+    box-shadow: 2px 0px 5px black;
+}
+
+#side_header ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#side_header img {
+    margin-bottom: -4px;
+}
+
+#side_header a {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    vertical-align: middle;
+    text-decoration: none;
+    border-top: 1px solid black;
+    font-size: 2em;
+    color:black;
+}
+
+#side_header li:last-of-type a{
+    border-bottom: 1px solid black;
+}
+
+#side_header a:hover{
+    background-color: #206844;
+    text-decoration: underline;
+}
+
+a#site_logo {
+    border-top: none;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+    z-index: -1;
+  }
+
+#main_wrapper{
+    margin-left: 175px;
+    padding-bottom: 2.5rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+  }
