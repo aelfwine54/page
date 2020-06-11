@@ -2,9 +2,15 @@ document.addEventListener('DOMContentLoaded', function(){
     hashHandler();
 }, false);
 
+function chargerSousContenu(){
+    let nom = "charger" + location.hash.replace('#/', '');
+    window[nom]();
+}
+
 function remplacerContenu(idElement, contenu){
     let wrapper = document.getElementById(idElement);
     wrapper.innerHTML = contenu;
+    chargerSousContenu();
 }
 
 
