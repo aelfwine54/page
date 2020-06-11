@@ -1,6 +1,7 @@
 <section id="enLecture">
     <h1>Titre(s) en lecture</h1>
     <p>Liste des titres dont la lecture est commencée</p>
+    <div id="listeEnLecture"></div>
 </section>
 <section id="prochainLivre">
     <h1>Titre suivant</h1>
@@ -14,3 +15,24 @@
     <h1>Ma bibliothèque</h1>
     <p>Liste de tous les titres de ma bibliothèque. Boutons pour ordonner par titre, auteur, date de publication, date d'ajout. Ordre croissant/décroissant.</p>
 </section>
+
+<template id="livre-template">
+    <style>
+        .livre {
+            border:1px solid black;
+            width: 200px;
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            max-height: 100px;
+        }
+    </style>
+    <article class="livre">
+        <img alt="Couverture du livre" src="/images/couvertures/defaut.jpg"/>
+        <h1>Titre du livre</h1>
+        <p class="auteur">Auteur du livre</p>
+        <p>Progression: <span class="progression">Terminé</span></p>
+    </article>
+</template>
+

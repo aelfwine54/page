@@ -29,6 +29,7 @@ footer {
     background-color: #339966;
     border-right: 1px solid black;
     box-shadow: 2px 0px 5px black;
+    z-index:1;
 }
 
 #side_header ul {
@@ -69,7 +70,7 @@ a#site_logo {
 #page-container {
     position: relative;
     min-height: 100vh;
-    z-index: -1;
+    z-index: 0;
   }
 
 #main_wrapper{
@@ -83,3 +84,10 @@ footer {
     width: 100%;
     height: 2.5rem;            /* Footer height */
   }
+
+
+
+#listeEnLecture{
+    display: flex;
+    flex-wrap: wrap;
+}
