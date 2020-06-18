@@ -1,43 +1,62 @@
-let livres = [
-    {
-        "titre": "L'île mystérieuse",
-        "auteur": "Jules Vernes",
-        "progression": 1,
-        "pages": 300,
-        "couverture": "/images/couvertures/ileMysterieuse.jpg",
-        "resume": "4 pecnos et un chien sur une île où il se passe de curieux trucs."
-    },
-    {
-        "titre": "Adagio pour une ombre",
-        "auteur": "Marion Zimmer Bradley",
-        "progression": 120,
-        "pages": 150,
-        "couverture": "/images/couvertures/adagio.jpg",
-        "resume": "Faut pas mélanger magie et piano."
-    }
-]
+let livres = []
 
-function afficherListeLivresEnLecture(){
-    const liste = document.getElementById('listeEnLecture');
+function afficherListeLivres(livres, conteneur){
+    const liste = document.getElementById(conteneur);
     const fragment = document.getElementById('livre-template');
 
-    // Clear out the content from the ul
     liste.innerHTML = '';
 
     livres.forEach(livre => {
-        const instance = document.importNode(fragment.content, true);
+            const instance = document.importNode(fragment.content, true);
 
-        let image = instance.querySelector('img');
-        image.src = livre.couverture;
+            let image = instance.querySelector('img');
+            image.src = livre.couverture;
 
-        instance.querySelector('h1').innerHTML = livre.titre;
-        instance.querySelector('.auteur').innerHTML = livre.auteur;
-        instance.querySelector('.progression').innerHTML = "Page " + livre.progression + " de " + livre.pages;
-
-        liste.appendChild(instance);
-    })
+            instance.querySelector('h1').innerHTML = livre.titre;
+            instance.querySelector('.auteur').innerHTML = livre.auteur;
+            instance.querySelector('.progression').innerHTML = "Page " + livre.progression + " de " + livre.pages;
+            if('serie' in livre){
+                instance.querySelector('.serie'). innerHTML = "[" + livre.rang + "] " + livre.serie;
+                instance.querySelector('.serie').classList.remove('cache')
+            }
+            liste.appendChild(instance);
+    });
 }
 
-function chargerlire (){
+function afficherListeLivresEnLecture(){
+    let l = livres.filter(function(i) {return i.progression > 0});
+    afficherListeLivres(l, 'listeEnLecture');
+}
+
+function afficherProchainLivre(){
+    const liste = document.getElementById('listeProchain');
+    const fragment = document.getElementById('livre-template');
+
+    liste.innerHTML = "Vous n'avez pas de série en cours";
+    //TODO
+}
+
+function afficherSeries(){
+    const liste = document.getElementById('listeSerie');
+    const fragment = document.getElementById('livre-template');
+
+    liste.innerHTML = "Vous n'avez pas de série en cours";
+    //TODO
+}
+
+function afficherBibliotheque(){
+    afficherListeLivres(livres, 'listeBibliotheque');
+}
+
+async function chargerLivres(){
+    const rep = await fetch('livres/');
+    return rep.json();
+}
+
+async function chargerlire (){
+    livres = await chargerLivres();
     afficherListeLivresEnLecture();
+    afficherProchainLivre();
+    afficherSeries();
+    afficherBibliotheque();
 }
