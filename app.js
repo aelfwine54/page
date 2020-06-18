@@ -4,6 +4,7 @@ const port = 3000;
 const path = require('path');
 
 const static_pages = require('./routes/static_pages');
+const livres = require('./routes/livres');
 
 app.use(express.static('client'));
 
@@ -12,5 +13,6 @@ app.get('/', function(req, res) {
 });
 
 app.use('/static_pages', static_pages);
+app.use('/livres', livres);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
