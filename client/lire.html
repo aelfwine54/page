@@ -1,19 +1,22 @@
 <section id="enLecture">
     <h1>Titre(s) en lecture</h1>
     <p>Liste des titres dont la lecture est commencée</p>
-    <div id="listeEnLecture"></div>
+    <div id="listeEnLecture" class="listeLivres"></div>
 </section>
 <section id="prochainLivre">
     <h1>Titre suivant</h1>
     <p>Le ou les prochains titres à lire selon les séries commencées mais pas finies. Offrir d'acheter les titres suivants manquants.</p>
+    <div id="listeProchain" class="listeLivres"></div>
 </section>
 <section id="series">
     <h1>Mes séries</h1>
     <p>Pastilles d'accueil pour aller vers la page contenants tous les titres d'une série.</p>
+    <div id="listeSerie" class="listeLivres"></div>
 </section>
 <section id="bibliotheque">
     <h1>Ma bibliothèque</h1>
     <p>Liste de tous les titres de ma bibliothèque. Boutons pour ordonner par titre, auteur, date de publication, date d'ajout. Ordre croissant/décroissant.</p>
+    <div id="listeBibliotheque" class="listeLivres"></div>
 </section>
 
 <template id="livre-template">
@@ -32,6 +35,7 @@
         <img alt="Couverture du livre" src="/images/couvertures/defaut.jpg"/>
         <h1>Titre du livre</h1>
         <p class="auteur">Auteur du livre</p>
+        <p class="serie cache">Serie</p>
         <p>Progression: <span class="progression">Terminé</span></p>
     </article>
 </template>

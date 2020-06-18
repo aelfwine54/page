@@ -87,7 +87,11 @@ footer {
 
 
 
-#listeEnLecture{
+.listeLivres{
     display: flex;
     flex-wrap: wrap;
+}
+
+.cache{
+    display: none;
 }
