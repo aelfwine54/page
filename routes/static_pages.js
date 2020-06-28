@@ -16,5 +16,9 @@ router.get('/series', function(req, res){
     res.sendFile(path.join(__dirname + '/../client/series.html'));
 });
 
+router.get('/bibliotheque', function(req, res){
+    res.sendFile(path.join(__dirname + '/../client/bibliotheque.html'));
+});
+
 
 module.exports = router
