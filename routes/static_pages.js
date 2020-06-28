@@ -12,5 +12,9 @@ router.get('/lire', function(req, res){
     res.sendFile(path.join(__dirname + '/../client/lire.html'));
 });
 
+router.get('/series', function(req, res){
+    res.sendFile(path.join(__dirname + '/../client/series.html'));
+});
+
 
 module.exports = router
